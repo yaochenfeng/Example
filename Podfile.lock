@@ -24,10 +24,17 @@ PODS:
     - GCDWebServer/Core
   - GCDWebServer/WebUploader (3.5.4):
     - GCDWebServer/Core
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
 
 DEPENDENCIES:
   - DoraemonKit/WithLogger
   - DoraemonKit/WithMLeaksFinder
+  - RxCocoa
 
 SPEC REPOS:
   trunk:
@@ -36,6 +43,9 @@ SPEC REPOS:
     - FBRetainCycleDetector
     - FMDB
     - GCDWebServer
+    - RxCocoa
+    - RxRelay
+    - RxSwift
 
 SPEC CHECKSUMS:
   CocoaLumberjack: 78abfb691154e2a9df8ded4350d504ee19d90732
@@ -43,7 +53,10 @@ SPEC CHECKSUMS:
   FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   GCDWebServer: 2c156a56c8226e2d5c0c3f208a3621ccffbe3ce4
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
 
-PODFILE CHECKSUM: 1907e8c3c2f198be10aa19d03bb1f5aa5321bdde
+PODFILE CHECKSUM: 9a7c0169f1596a2db09b5feb1ff885a4d364c09f
 
 COCOAPODS: 1.11.3

@@ -10,6 +10,7 @@ end
 
 target 'Example' do
   debug_pod
+  pod 'RxCocoa'
 end
 
 post_install do |installer|
