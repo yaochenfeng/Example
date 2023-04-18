@@ -30,11 +30,15 @@ PODS:
   - RxRelay (6.5.0):
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
+  - SwiftGen (6.5.0)
+  - SwiftLint (0.51.0)
 
 DEPENDENCIES:
   - DoraemonKit/WithLogger
   - DoraemonKit/WithMLeaksFinder
   - RxCocoa
+  - SwiftGen (= 6.5.0)
+  - SwiftLint
 
 SPEC REPOS:
   trunk:
@@ -46,6 +50,8 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - SwiftGen
+    - SwiftLint
 
 SPEC CHECKSUMS:
   CocoaLumberjack: 78abfb691154e2a9df8ded4350d504ee19d90732
@@ -56,7 +62,9 @@ SPEC CHECKSUMS:
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  SwiftGen: c3f115ede549d4b7873c3946b7d5ca538eb8b621
+  SwiftLint: 1b7561918a19e23bfed960e40759086e70f4dba5
 
-PODFILE CHECKSUM: 9a7c0169f1596a2db09b5feb1ff885a4d364c09f
+PODFILE CHECKSUM: 84044d9ac87686c4e68a2f7ba385c1491b6f8f10
 
 COCOAPODS: 1.11.3

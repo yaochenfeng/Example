@@ -1,7 +1,7 @@
-platform :ios, '11.0'
+platform :ios, '12.0'
 ensure_bundler!
 use_frameworks! :linkage => :static
-inhibit_all_warnings! # 过滤忽略Pods依赖警告
+
 
 def debug_pod #开发使用库
   pod 'DoraemonKit/WithLogger', :configurations => ['Debug'] #可选
@@ -9,11 +9,17 @@ def debug_pod #开发使用库
 end
 
 target 'Example' do
+  inhibit_all_warnings! # 过滤忽略Pods依赖警告
   debug_pod
   pod 'RxCocoa'
+  pod 'SwiftLint'
+  pod 'SwiftGen', '6.5.0'
 end
 
 post_install do |installer|
+  installer.pods_project.build_configurations.each do |config|
+      config.build_settings['DEAD_CODE_STRIPPING'] = 'YES'
+  end
   # https://github.com/facebook/FBRetainCycleDetector/issues/96
   ## Fix for XCode 12.5
   find_and_replace("Pods/FBRetainCycleDetector/FBRetainCycleDetector/Layout/Classes/FBClassStrongLayout.mm",
@@ -22,6 +28,9 @@ post_install do |installer|
   find_and_replace("Pods/FBRetainCycleDetector/fishhook/fishhook.c",
         "indirect_symbol_bindings[i] = cur->rebindings[j].replacement;", "if (i < (sizeof(indirect_symbol_bindings) / sizeof(indirect_symbol_bindings[0]))) { \n indirect_symbol_bindings[i]=cur->rebindings[j].replacement; \n }")
   installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+          config.build_settings.delete 'IPHONEOS_DEPLOYMENT_TARGET'
+      end
       # Xcode14适配 https://juejin.cn/post/7143162564837376037
       if target.respond_to?(:product_type) and target.product_type == "com.apple.product-type.bundle"
          target.build_configurations.each do |config|
