@@ -1,0 +1,22 @@
+name: Example
+options:
+  bundleIdPrefix: com.github.yaochenfeng
+  deploymentTarget:
+    iOS: "11.0"
+  postGenCommand: bundle exec pod install
+
+settings:
+  base:
+    MARKETING_VERSION: 1.0.0
+    CURRENT_PROJECT_VERSION: 1
+
+targets:
+  Example:
+    type: application
+    platform: iOS
+    sources: [Example]
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_UILaunchStoryboardName: LaunchScreen.storyboard
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
