@@ -16,15 +16,12 @@ targets:
     platform: iOS
     sources: [Example]
     preBuildScripts:
-      - name: swiftgen
+      - name: lintAndGen
         basedOnDependencyAnalysis: false
-        script: "${PODS_ROOT}/SwiftGen/bin/swiftgen"
-    postBuildScripts:
-      - script: "${PODS_ROOT}/SwiftLint/swiftlint"
-        name: Swiftlint
-        basedOnDependencyAnalysis: false
+        script: "${PODS_ROOT}/SwiftGen/bin/swiftgen && ${PODS_ROOT}/SwiftLint/swiftlint"
     settings:
       base:
         GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_FILE: Example/Resources/Info.plist
         INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
         INFOPLIST_KEY_UILaunchScreen_Generation: YES
