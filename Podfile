@@ -11,9 +11,9 @@ end
 target 'Example' do
   inhibit_all_warnings! # 过滤忽略Pods依赖警告
   debug_pod
-  pod 'RxCocoa'
   pod 'SwiftLint'
   pod 'SwiftGen', '6.5.0'
+  pod 'RXKit'
 end
 
 post_install do |installer|

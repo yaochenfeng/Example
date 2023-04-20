@@ -1,4 +1,6 @@
 import UIKit
+@_exported import RXKit
+
 #if canImport(DoraemonKit)
 import DoraemonKit
 #endif
