@@ -1,7 +1,5 @@
 platform :ios, '12.0'
 ensure_bundler!
-use_frameworks! :linkage => :static
-
 
 def debug_pod #开发使用库
   pod 'DoraemonKit/WithLogger', :configurations => ['Debug'] #可选
@@ -9,6 +7,7 @@ def debug_pod #开发使用库
 end
 
 target 'Example' do
+  use_frameworks! :linkage => :static
   inhibit_all_warnings! # 过滤忽略Pods依赖警告
   debug_pod
   pod 'SwiftLint'
