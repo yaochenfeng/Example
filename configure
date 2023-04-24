@@ -1,3 +1,2 @@
-#!/usr/bin/env ruby
-pod_name = ARGV.shift
-puts pod_name
+#!/bin/zsh
+bundle exec fastlane run auto_pod_new pod_name:"$1"
