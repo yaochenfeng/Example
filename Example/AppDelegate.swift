@@ -34,7 +34,13 @@ extension AppDelegate {
     
     func setupDebug() {
 #if canImport(DoraemonKit)
-        DoraemonManager.shareInstance().install()
+        DoraemonCacheManager.sharedInstance().saveMemoryLeak(true)
+        DoraemonCacheManager.sharedInstance().saveMemoryLeakAlert(true)
+        DoraemonCacheManager.sharedInstance().saveLoggerSwitch(true)
+        DoraemonCacheManager.sharedInstance().saveStartClass(NSStringFromClass(self.classForCoder))
+        DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+            DoraemonManager.shareInstance().install()
+        })
 #endif
     }
 }

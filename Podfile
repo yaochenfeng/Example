@@ -5,6 +5,12 @@ def debug_pod #开发使用库
   pod 'DoraemonKit/WithLogger', :configurations => ['Debug'] #可选
   pod 'DoraemonKit/WithMLeaksFinder', :configurations => ['Debug'] #可选
 end
+def local_pod #本地开发使用库
+  Dir.glob(["*.podspec"]).each do |path|
+    pod_name = File.basename(path,'.podspec')
+    pod pod_name, :path => '.'
+  end
+end
 
 target 'Example' do
   use_frameworks! :linkage => :static
@@ -13,6 +19,7 @@ target 'Example' do
   pod 'SwiftLint'
   pod 'SwiftGen', '6.5.0'
   pod 'RXKit'
+  local_pod
 end
 
 post_install do |installer|
