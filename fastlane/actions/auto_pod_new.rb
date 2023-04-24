@@ -19,7 +19,7 @@ module Fastlane
         self.changePodfile()
         # command = []
         # result = Actions.sh(command.join(' '))
-        # UI.success("Successfully new pod ⬆️ ")
+        UI.success("Successfully new pod ⬆️ ")
         # return result
       end
       # podfile文件替换
@@ -54,7 +54,7 @@ module Fastlane
                                        is_string: true),
           FastlaneCore::ConfigItem.new(key: :pod_repo,
                                        env_name: "AUTO_POD_REPO", # The name of the environment variable
-                                       description: "pod私有repo仓库", # a short description of this parameter
+                                       description: "pod私有repo仓库,不使用空", # a short description of this parameter
                                        is_string: true)
         ]
       end
