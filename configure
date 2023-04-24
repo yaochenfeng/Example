@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+pod_name = ARGV.shift
+puts pod_name

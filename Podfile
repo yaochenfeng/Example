@@ -1,3 +1,6 @@
+#私有源
+source 'https://cdn.cocoapods.org/'
+
 platform :ios, '12.0'
 ensure_bundler!
 
