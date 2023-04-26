@@ -1,2 +1,9 @@
 #!/bin/zsh
 bundle exec fastlane run auto_pod_new pod_name:"$1"
+
+if which xcodegen > /dev/null; then
+  xcodegen
+else
+    echo "使用xcodegen生成项目"
+    bundle exec pod install
+fi
