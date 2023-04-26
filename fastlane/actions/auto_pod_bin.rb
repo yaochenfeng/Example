@@ -28,6 +28,11 @@ module Fastlane
         command << "build"
         result = Actions.sh(command.join(' '))
         other_action.create_xcframework(frameworks: ["build/#{configuration}-iphonesimulator/#{podName}/#{podName}.framework", "build/#{configuration}-iphoneos/#{podName}/#{podName}.framework"], output: "build/#{podName}.xcframework")
+        # TODO: 资源文件处理
+        other_action.zip(
+          path: "build/#{podName}.xcframework",
+          output_path: "#{podName}.xcframework.zip"
+        )
       end
 
       #####################################################
@@ -39,14 +44,11 @@ module Fastlane
       end
 
       def self.details
-        # Optional:
         # this is your chance to provide a more detailed description of this action
         "You can use this action to do cool things..."
       end
 
       def self.available_options
-        # Define all options your action supports.
-
         # Below a few examples
         [
           FastlaneCore::ConfigItem.new(key: :pod_name,
@@ -73,20 +75,10 @@ module Fastlane
       end
 
       def self.authors
-        # So no one will ever forget your contribution to fastlane :) You are awesome btw!
-        ["Your GitHub/Twitter Name"]
+        ["yaochenfeng"]
       end
 
       def self.is_supported?(platform)
-        # you can do things like
-        #
-        #  true
-        #
-        #  platform == :ios
-        #
-        #  [:ios, :mac].include?(platform)
-        #
-
         platform == :ios
       end
     end
