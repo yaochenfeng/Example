@@ -9,10 +9,13 @@ def debug_pod #开发使用库
   pod 'DoraemonKit/WithMLeaksFinder', :configurations => ['Debug'] #可选
 end
 def local_pod #本地开发使用库
+  rx_exists = false
   Dir.glob(["*.podspec"]).each do |path|
     pod_name = File.basename(path,'.podspec')
     pod pod_name, :path => '.'
+    rx_exists = true if pod_name == 'RXKit'
   end
+  pod 'RXKit' unless rx_exists
 end
 
 target 'Example' do
@@ -21,7 +24,6 @@ target 'Example' do
   debug_pod
   pod 'SwiftLint'
   pod 'SwiftGen', '6.5.0'
-  pod 'RXKit'
   local_pod
 end
 
