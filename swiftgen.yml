@@ -1,5 +1,5 @@
  input_dir: Example/Resources/
- output_dir: Example/
+ output_dir: Example/Resources/
 
 
 ## Generate constants for your localized strings.
@@ -25,7 +25,7 @@
        params:
          forceProvidesNamespaces: true
          enumName: Assets # 枚举名称
-       output: Assets+Gen.swift
+       output: R+Assets.swift
 
 
 ## Generate constants for your storyboards and XIBs.
