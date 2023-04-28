@@ -43,7 +43,7 @@ extension UIWindow {
         } else {
             win = UIWindow(frame: UIScreen.main.bounds)
         }
-        win.rootViewController = UINavigationController(rootViewController: UIViewController())
+        win.rootViewController = MainAppWrapper.rootController()
         win.makeKeyAndVisible()
         return win
     }

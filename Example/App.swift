@@ -20,26 +20,16 @@ struct MainAppWrapper {
 }
 
 #if canImport(SwiftUI)
+import SwiftUI
 @available(iOS 14.0, *)
 struct MainApp: App {
     @UIApplicationDelegateAdaptor var appDelegate: AppDelegate
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RoutePageView {
+                return MainAppWrapper.rootController()
+            }
         }
-    }
-}
-import SwiftUI
-@available(iOS 13.0, *)
-struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
     }
 }
 @available(iOS 13.0, *)
