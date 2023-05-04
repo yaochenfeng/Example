@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import RXKit
 
 extension MainAppWrapper {
     /// 项目根控制器
     static func rootController() -> UIViewController {
-        return RXNavigationController.rx.new.base
+        return RXNavigationController.rx.new.then { base in
+            base.setViewControllers([RoutePage.home.controller], animated: false)
+        }
     }
 }

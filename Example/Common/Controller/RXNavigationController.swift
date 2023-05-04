@@ -9,6 +9,7 @@ import UIKit
 import RXKit
 
 class RXNavigationController: UINavigationController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
