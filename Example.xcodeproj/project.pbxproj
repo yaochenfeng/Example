@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,7 +13,6 @@
 		334EBBE4944C26A916B73A34 /* App+root.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3B4E441690CF3ADAABF6F8 /* App+root.swift */; };
 		5B25804D318F8912EFFF81DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D7109850AA6EC233B74969 /* SceneDelegate.swift */; };
 		61ED59AFF4CAAFE8BE7794CA /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691C8786C357E4C66190D6CE /* App.swift */; };
-		79BFE8A9A2107DB6F0D3D50B /* RXNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B5907809295694AE75DCC4 /* RXNavigationController.swift */; };
 		AF2EF944C8FF9574952FE4E5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B57CD4E6F6618D89DF3B1A /* BaseViewController.swift */; };
 		F3EA517C15B16B05D9913006 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8F452015F53CEB92D6CA88D /* Pods_Example.framework */; };
 		F82B33E97AF11C2D5D9A659A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C9BA92B4C370D66B9AB0595 /* Assets.xcassets */; };
@@ -21,7 +20,6 @@
 
 /* Begin PBXFileReference section */
 		31C2BFC9E59893EF58E0616A /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
-		35B5907809295694AE75DCC4 /* RXNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RXNavigationController.swift; sourceTree = "<group>"; };
 		3A36B87088C36384CAE8FB76 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		57D7109850AA6EC233B74969 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		59B57CD4E6F6618D89DF3B1A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -88,7 +86,6 @@
 			isa = PBXGroup;
 			children = (
 				59B57CD4E6F6618D89DF3B1A /* BaseViewController.swift */,
-				35B5907809295694AE75DCC4 /* RXNavigationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -117,7 +114,6 @@
 				3A36B87088C36384CAE8FB76 /* Pods-Example.debug.xcconfig */,
 				8E7406E4E2EAB09DE9D074F5 /* Pods-Example.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -169,8 +165,6 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1200;
-				TargetAttributes = {
-				};
 			};
 			buildConfigurationList = 36FC72E69D906F48675C62BF /* Build configuration list for PBXProject "Example" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -272,7 +266,6 @@
 				0C7598158EC1BB776691C498 /* AppDelegate.swift in Sources */,
 				2A47E81E759FA0A1E321BE2D /* Assets.swift in Sources */,
 				AF2EF944C8FF9574952FE4E5 /* BaseViewController.swift in Sources */,
-				79BFE8A9A2107DB6F0D3D50B /* RXNavigationController.swift in Sources */,
 				31F2621099272E3B28385FEF /* RoutePage.swift in Sources */,
 				5B25804D318F8912EFFF81DD /* SceneDelegate.swift in Sources */,
 			);
