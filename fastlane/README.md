@@ -13,12 +13,18 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 # Available Actions
 
-## iOS
-
-### ios sync_example
+### test
 
 ```sh
-[bundle exec] fastlane ios sync_example
+[bundle exec] fastlane test
+```
+
+
+
+### sync_example
+
+```sh
+[bundle exec] fastlane sync_example
 ```
 
 同步Example壳工程
