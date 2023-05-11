@@ -6,4 +6,5 @@ ios开发pod工程模板
 ### pod二进制
 > fastlane run auto_pod_bin
 ### 从Example工程同步最新代码
-> fastlane run sync_example_code
+- fastlane run sync_example_code
+- fastlane sync_example
