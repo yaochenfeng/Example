@@ -11,7 +11,8 @@ import RXKit
 extension MainAppWrapper {
     /// 项目根控制器
     static func rootController() -> UIViewController {
-        return RXNavigationController.rx.new.then { base in
+        return RXNavigationController.shared.rx.then { base in
+            base.navigationBar.tintColor = Asset.accentColor.color
             base.setViewControllers([RoutePage.home.controller], animated: false)
         }
     }
