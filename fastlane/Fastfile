@@ -14,3 +14,7 @@
 # update_fastlane
 
 import_from_git(url: 'https://github.com/yaochenfeng/fastlane-plugin-autodevops')
+
+override_lane :test do
+    puts '测试'
+end

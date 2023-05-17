@@ -27,15 +27,9 @@ extension RoutePage {
 }
 
 extension RoutePage: RXRouteConvertible {
-    init?(string: String) {
-        self.init(rawValue: string)
-    }
-    
-    var routeId: String {
-        return rawValue
-    }
-    
     func getController() -> UIViewController? {
         return controller
     }
 }
+
+
