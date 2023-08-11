@@ -1,9 +1,5 @@
-name: Example
-options:
-  bundleIdPrefix: com.github.yaochenfeng
-  deploymentTarget:
-    iOS: "12.0"
-  postGenCommand: bundle exec pod install
+include:
+  - project-base.yml
 
 settings:
   base:
@@ -12,9 +8,8 @@ settings:
 
 targets:
   Example:
-    type: application
-    platform: iOS
-    sources: [Example]
+    templates: 
+      - iOSApp
     preBuildScripts:
       - name: lintAndGen
         basedOnDependencyAnalysis: false

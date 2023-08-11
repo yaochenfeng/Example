@@ -1,0 +1,15 @@
+name: Example
+options:
+  bundleIdPrefix: com.github.yaochenfeng
+  deploymentTarget:
+    iOS: "12.0"
+  postGenCommand: bundle exec pod install
+
+
+
+targetTemplates:
+  iOSApp:
+    platform: iOS
+    type: application
+    sources:
+      - Sources/${target_name}
