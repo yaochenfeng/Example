@@ -1,5 +1,4 @@
 import UIKit
-@_exported import RXKit
 
 #if canImport(DoraemonKit)
 import DoraemonKit
@@ -7,10 +6,10 @@ import DoraemonKit
 #if canImport(CocoaLumberjack)
         import CocoaLumberjack
 #endif
-class AppDelegate: UIResponder {
+class AppDelegateAdaptor: UIResponder {
     var window: UIWindow?
 }
-extension AppDelegate: UIApplicationDelegate {
+extension AppDelegateAdaptor: UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         commomService()
         setupDebug()
@@ -29,15 +28,15 @@ extension AppDelegate: UIApplicationDelegate {
     }
 }
 // 外部打开内容页面
-extension AppDelegate {
+extension AppDelegateAdaptor {
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
                 let url = userActivity.webpageURL else { return false }
-        RXRouter.shared.open(url)
+//        RXRouter.shared.open(url)
         return true
     }
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-        RXRouter.shared.open(url)
+//        RXRouter.shared.open(url)
         return true
     }
 }
@@ -56,13 +55,13 @@ extension UIWindow {
         } else {
             win = UIWindow(frame: UIScreen.main.bounds)
         }
-        win.rootViewController = MainAppWrapper.rootController()
+        win.rootViewController = UIViewController()
         win.makeKeyAndVisible()
         return win
     }
 }
 
-extension AppDelegate {
+extension AppDelegateAdaptor {
     func commomService() {
 #if canImport(CocoaLumberjack)
         DDLog.add(DDOSLogger.sharedInstance) // Uses os_log
@@ -87,3 +86,6 @@ extension AppDelegate {
 #endif
     }
 }
+
+@available(iOS 13.0, *)
+extension AppDelegateAdaptor: ObservableObject {}

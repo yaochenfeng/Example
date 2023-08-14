@@ -1,5 +1,5 @@
- input_dir: Example/Resources/
- output_dir: Example/Resources/Generated/
+ input_dir: Sources/Example/Resources/
+ output_dir: Sources/Example/Resources/Generated/
 
 
 ## Generate constants for your localized strings.
