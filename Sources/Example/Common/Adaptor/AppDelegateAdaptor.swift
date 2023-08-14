@@ -1,11 +1,12 @@
-import UIKit
-
 #if canImport(DoraemonKit)
 import DoraemonKit
 #endif
 #if canImport(CocoaLumberjack)
-        import CocoaLumberjack
+import CocoaLumberjack
 #endif
+
+#if canImport(UIKit)
+import UIKit
 class AppDelegateAdaptor: UIResponder {
     var window: UIWindow?
 }
@@ -13,10 +14,6 @@ extension AppDelegateAdaptor: UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         commomService()
         setupDebug()
-        
-        if #unavailable(iOS 13.0), window == nil {
-            window = .configMain()
-        }
         return true
     }
     
@@ -40,26 +37,13 @@ extension AppDelegateAdaptor {
         return true
     }
 }
-extension UIWindow {
-    static func configMain() -> UIWindow {
-        var win: UIWindow
-        if #available(iOS 13.0, *) {
-            let windowScene = UIApplication.shared
-                            .connectedScenes
-                            .first
-            if let windowScene = windowScene as? UIWindowScene {
-                win = UIWindow(windowScene: windowScene)
-            } else {
-                win = UIWindow(frame: UIScreen.main.bounds)
-            }
-        } else {
-            win = UIWindow(frame: UIScreen.main.bounds)
-        }
-        win.rootViewController = UIViewController()
-        win.makeKeyAndVisible()
-        return win
-    }
+#else
+class AppDelegateAdaptor: NSObject {
+    var window: UIWindow?
 }
+#endif
+
+
 
 extension AppDelegateAdaptor {
     func commomService() {
@@ -87,5 +71,7 @@ extension AppDelegateAdaptor {
     }
 }
 
-@available(iOS 13.0, *)
+#if canImport(swiftUI)
+import SwiftUI
 extension AppDelegateAdaptor: ObservableObject {}
+#endif
