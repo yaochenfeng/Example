@@ -18,10 +18,14 @@ def local_pod #本地开发使用库
   pod 'RXKit' unless podSet.include? 'RXKit'
 end
 
+def core_pod
+  pod 'Logging'
+end
 target 'Example' do
   use_frameworks! :linkage => :static
   inhibit_all_warnings! # 过滤忽略Pods依赖警告
   debug_pod
+  core_pod
   pod 'SwiftLint'
   pod 'SwiftGen', '6.5.0'
   local_pod

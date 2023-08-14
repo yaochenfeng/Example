@@ -7,7 +7,9 @@
 import SwiftUI
 @main
 struct AppAdaptor {
+    
     static func main() {
+        setupCommon()
         if #available(iOS 14.0, *) {
             MainApp.main()
         } else {
@@ -17,14 +19,25 @@ struct AppAdaptor {
             #endif
         }
     }
+    /// 公共配置
+    
+    static func setupCommon() {
+        if #available(iOS 11, *) {
+            return
+        }
+    }
+    
 }
 
-@available(iOS 14.0, *)
-struct MainApp: App {
-    @UIApplicationDelegateAdaptor var appDelegate: AppDelegateAdaptor
-    var body: some Scene {
-        WindowGroup {
-           Text("")
+extension AppAdaptor {
+    
+    @available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
+    struct MainApp: App {
+        @UIApplicationDelegateAdaptor var appDelegate: AppDelegateAdaptor
+        var body: some Scene {
+            SceneView {
+                Text("Hello world")
+            }
         }
     }
 }
