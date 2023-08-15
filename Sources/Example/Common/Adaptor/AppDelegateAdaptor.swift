@@ -43,8 +43,6 @@ class AppDelegateAdaptor: NSObject {
 }
 #endif
 
-
-
 extension AppDelegateAdaptor {
     func commomService() {
 #if canImport(CocoaLumberjack)

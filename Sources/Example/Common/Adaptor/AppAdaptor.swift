@@ -8,7 +8,7 @@ import SwiftUI
 @main
 struct AppAdaptor {
     static func main() {
-        if #available(iOS 14.0, *) {
+        if #available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *) {
             MainApp.main()
         } else {
             #if os(iOS)
@@ -25,8 +25,12 @@ private struct MainApp: App {
     @UIApplicationDelegateAdaptor var appDelegate: AppDelegateAdaptor
     #endif
     var body: some Scene {
-        SceneView {
-            Text("Hello world")
+        WindowGroup {
+            RootView {
+                HomeView()
+            }
+        }.commands {
+            MenuView()
         }
     }
 }
