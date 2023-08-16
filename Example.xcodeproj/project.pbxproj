@@ -18,6 +18,7 @@
 		97ACFD812A8B130E005D5D7E /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97ACFD802A8B130E005D5D7E /* MenuView.swift */; };
 		97ACFD832A8B1710005D5D7E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97ACFD822A8B1710005D5D7E /* RootView.swift */; };
 		97ACFD852A8B1926005D5D7E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97ACFD842A8B1926005D5D7E /* HomeView.swift */; };
+		97ACFD872A8C78B9005D5D7E /* import.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97ACFD862A8C78B9005D5D7E /* import.swift */; };
 		AF2EF944C8FF9574952FE4E5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B57CD4E6F6618D89DF3B1A /* BaseViewController.swift */; };
 		F82B33E97AF11C2D5D9A659A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C9BA92B4C370D66B9AB0595 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -36,6 +37,7 @@
 		97ACFD802A8B130E005D5D7E /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		97ACFD822A8B1710005D5D7E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		97ACFD842A8B1926005D5D7E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		97ACFD862A8C78B9005D5D7E /* import.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = import.swift; sourceTree = "<group>"; };
 		A1625F29E91F7B9DA6690E5F /* AppDelegateAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateAdaptor.swift; sourceTree = "<group>"; };
 		D7DDABC80BD16DB3328FC430 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		F6FE7BF0248FC2FF22A10D63 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +107,7 @@
 				97ACFD792A8A2309005D5D7E /* Adaptor */,
 				97ACFD782A86374A005D5D7E /* Views */,
 				56964BB6CBAEB6F3A9CA409A /* Controller */,
+				97ACFD862A8C78B9005D5D7E /* import.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				F6D7A45039F9699F86B7F544 /* Resources */,
 				29F2EE2223F55FC4BED5990E /* Frameworks */,
 				8E4589567F7E738882D42872 /* [CP] Copy Pods Resources */,
+				B7E1601C67BA628426733B4A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -271,6 +275,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B7E1601C67BA628426733B4A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		EBD83416579894A82E577E9E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -310,6 +331,7 @@
 				97ACFD7F2A8A59EA005D5D7E /* SettingView.swift in Sources */,
 				AF2EF944C8FF9574952FE4E5 /* BaseViewController.swift in Sources */,
 				5B25804D318F8912EFFF81DD /* SceneDelegateAdaptor.swift in Sources */,
+				97ACFD872A8C78B9005D5D7E /* import.swift in Sources */,
 				97ACFD7B2A8A506B005D5D7E /* SceneView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
