@@ -20,7 +20,7 @@ end
 
 def core_pod
   pod 'Logging'
-  pod 'DFService', '< 0.1.1'
+  pod 'DFService', '~> 0.2.0'
 end
 target 'Example' do
   use_frameworks! :linkage => :static

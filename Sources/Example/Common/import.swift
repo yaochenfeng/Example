@@ -8,3 +8,4 @@
 import DFService
 
 let DF = ApplicationContext.shared
+let router = RoutePipeline()
