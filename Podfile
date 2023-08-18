@@ -4,9 +4,15 @@ source 'https://cdn.cocoapods.org/'
 platform :ios, '12.0'
 ensure_bundler!
 
+# 本地开发库和远程库切换使用
+def podDebugCondition(name)
+  if ENV["#{name}"] == '1'
+    pod name, :configurations => ['Debug'] #可选
+  end
+end
+
 def debug_pod #开发使用库
-  pod 'DoraemonKit/WithLogger', :configurations => ['Debug'] #可选
-  pod 'DoraemonKit/WithMLeaksFinder', :configurations => ['Debug'] #可选
+  podDebugCondition('DoraemonKit')
 end
 def local_pod #本地开发使用库
   podSet = [].to_set
@@ -20,7 +26,7 @@ end
 
 def core_pod
   pod 'Logging'
-  pod 'DFService', '< 0.1.1'
+  pod 'DFService', '~> 0.2.0'
 end
 target 'Example' do
   use_frameworks! :linkage => :static

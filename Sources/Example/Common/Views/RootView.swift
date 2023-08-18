@@ -14,7 +14,12 @@ struct RootView<Content>: View where Content: View {
     }
     var body: some View {
         NavigationView {
-            content()
+            if #available(iOS 14.0, *) {
+                content()
+                    .navigationBarTitleDisplayMode(.inline)
+            } else {
+                // Fallback on earlier versions
+            }
         }
     }
 }

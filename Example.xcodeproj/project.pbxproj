@@ -189,7 +189,6 @@
 				111FF52307B445A964A77FE3 /* Sources */,
 				F6D7A45039F9699F86B7F544 /* Resources */,
 				29F2EE2223F55FC4BED5990E /* Frameworks */,
-				8E4589567F7E738882D42872 /* [CP] Copy Pods Resources */,
 				B7E1601C67BA628426733B4A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -257,23 +256,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "${PODS_ROOT}/SwiftGen/bin/swiftgen && ${PODS_ROOT}/SwiftLint/swiftlint";
-		};
-		8E4589567F7E738882D42872 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		B7E1601C67BA628426733B4A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

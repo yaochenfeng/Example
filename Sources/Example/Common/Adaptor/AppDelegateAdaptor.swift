@@ -1,5 +1,6 @@
 #if canImport(DoraemonKit)
 import DoraemonKit
+
 #endif
 #if canImport(CocoaLumberjack)
 import CocoaLumberjack
@@ -30,6 +31,7 @@ extension AppDelegateAdaptor {
         guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
                 let url = userActivity.webpageURL else { return false }
 //        RXRouter.shared.open(url)
+        
         return true
     }
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
@@ -56,6 +58,7 @@ extension AppDelegateAdaptor {
     }
     
     func setupDebug() {
+// 影响SwiftUI预览
 #if canImport(DoraemonKit)
         DoraemonCacheManager.sharedInstance().saveMemoryLeak(true)
         DoraemonCacheManager.sharedInstance().saveCrashSwitch(true)
