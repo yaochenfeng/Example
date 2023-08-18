@@ -4,9 +4,16 @@ source 'https://cdn.cocoapods.org/'
 platform :ios, '12.0'
 ensure_bundler!
 
+def debug_condition_pod(name)
+  if ENV['DEBUG_POD'] == '1'
+    pod name, :configurations => ['Debug'] #可选
+  elsif ENV[name.gsub("/", "_")] == '1'
+    pod name, :configurations => ['Debug'] #可选
+  end
+end
 def debug_pod #开发使用库
-  pod 'DoraemonKit/WithLogger', :configurations => ['Debug'] #可选
-  pod 'DoraemonKit/WithMLeaksFinder', :configurations => ['Debug'] #可选
+  debug_condition_pod('DoraemonKit/WithLogger')
+  debug_condition_pod('DoraemonKit/WithMLeaksFinder')
 end
 def local_pod #本地开发使用库
   podSet = [].to_set
