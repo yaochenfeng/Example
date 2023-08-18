@@ -28,7 +28,7 @@ private struct MainApp: App {
     var body: some Scene {
         WindowGroup {
             RootView {
-                HomeView()
+                HomePageView()
             }
         }.commands {
             MenuView()
