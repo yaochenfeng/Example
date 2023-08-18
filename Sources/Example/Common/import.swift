@@ -8,7 +8,7 @@
 import DFService
 import Logging
 
-typealias URLRouter = RoutePipeline
+typealias URLRouter = DFService.RoutePipeline
 
 typealias Logger = Logging.Logger
 typealias DFProviderType = DFService.DFProviderType
