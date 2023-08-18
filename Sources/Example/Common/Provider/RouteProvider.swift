@@ -5,9 +5,7 @@
 //  Created by yaochenfeng on 2023/8/17.
 //
 
-import UIKit
 import DFService
-
 class RouteProvider: DFProviderType {
     var isBootstrap: Bool = false
     
@@ -28,9 +26,17 @@ class RouteProvider: DFProviderType {
         
     }
 }
+
+#if canImport(UIKit)
+import UIKit
+#endif
+
 #if canImport(SafariServices)
 import SafariServices
 #endif
+
+/// 处理H5跳转
+
 struct H5Middleware: DFMiddlewareType {
     typealias Input = RoutePipeline.Input
     typealias Output = RoutePipeline.Output
@@ -50,8 +56,7 @@ struct H5Middleware: DFMiddlewareType {
     
 }
 
-#if canImport(UIKit)
-import UIKit
+@available(iOS 8.0, *)
 extension UIViewController {
     static func topViewController() -> UIViewController? {
         if #available(iOS 13.0, *) {
@@ -76,4 +81,3 @@ extension UIViewController {
         return self
     }
 }
-#endif
