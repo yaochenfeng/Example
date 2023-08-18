@@ -18,7 +18,7 @@ struct RootView<Content>: View where Content: View {
                 content()
                     .navigationBarTitleDisplayMode(.inline)
             } else {
-                // Fallback on earlier versions
+                content()
             }
         }
     }

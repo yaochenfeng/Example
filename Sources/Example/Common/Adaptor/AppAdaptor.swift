@@ -29,10 +29,8 @@ private struct MainApp: App {
     var body: some Scene {
         WindowGroup {
             RootView {
-                HomePageView()
+                RoutePageView(url: URL(string: RouteProvider.rootUri))
             }
-        }.commands {
-            MenuView()
         }
     }
 }

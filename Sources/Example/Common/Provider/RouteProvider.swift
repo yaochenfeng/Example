@@ -6,14 +6,33 @@
 //
 
 import DFService
+#if canImport(SwiftUI)
+import SwiftUI
+#endif
 class RouteProvider: DFProviderType {
+    static var rootUri = "home.local"
     var isBootstrap: Bool = false
-    
+    var schemes: [String] = ["example"]
+    let logger = Logger(RouteProvider.self)
     required init(_ app: ApplicationContext) {
+        
+        if let info = Bundle.main.infoDictionary,
+           let bundleURLTypes = info["CFBundleURLTypes"] as? [[String: Any]] {
+            var schemes = [String]()
+            for urlType in bundleURLTypes where urlType["CFBundleURLSchemes"] != nil {
+                if let urlSchemes = urlType["CFBundleURLSchemes"] as? [String] {
+                    schemes.append(contentsOf: urlSchemes)
+                }
+            }
+            self.schemes = schemes
+        }
         
     }
     
     func register(_ app: ApplicationContext) {
+        if #available(iOS 13.0.0, *) {
+            registerRouter()
+        }
         router.addMiddleware(H5Middleware())
         router.addTerminateHandle { _, res in
             if case .success(let output) = res, let vc = output as? UIViewController {
@@ -25,6 +44,14 @@ class RouteProvider: DFProviderType {
     func boot(_ app: ApplicationContext) {
         
     }
+    @available(iOS 13.0.0, *)
+    func registerRouter() {
+        for item in RoutePage.allCases {
+            router.addRouteHandler(uri: item.routeUri) { _ in
+                return item.routeView
+            }
+        }
+    }
 }
 
 #if canImport(UIKit)
@@ -33,6 +60,7 @@ import UIKit
 
 #if canImport(SafariServices)
 import SafariServices
+import SwiftUI
 #endif
 
 /// 处理H5跳转
@@ -66,7 +94,7 @@ extension UIViewController {
         } else {
             return UIApplication.shared.delegate?.window??.rootViewController
         }
-
+        
     }
     func topMostViewController() -> UIViewController {
         if let presentedVC = presentedViewController {
@@ -77,6 +105,9 @@ extension UIViewController {
         }
         if let tabBarController = self as? UITabBarController {
             return tabBarController.selectedViewController?.topMostViewController() ?? tabBarController
+        }
+        if let nav = self.navigationController {
+            return nav.topMostViewController()
         }
         return self
     }

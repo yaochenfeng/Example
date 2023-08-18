@@ -15,17 +15,25 @@ class LoggerProvider: DFProviderType {
     var isBootstrap: Bool = false
     
     required init(_ app: ApplicationContext) {
-#if canImport(CocoaLumberjack)
-        setupCocoaLumberjack()
-#endif
+        boot(app)
     }
     
-    func register(_ app: ApplicationContext) {
-
+    func register(_ app: ApplicationContext) {}
+    
+    func boot(_ app: ApplicationContext) {
+        guard app.isShared, !isBootstrap else { return }
+        isBootstrap = true
+        LoggingSystem.bootstrap { label in
+            return MultiplexLogHandler(self.genLogHanlders(label))
+        }
     }
-    
-    func boot(_ app: ApplicationContext) {}
-    
+    func genLogHanlders(_ label: String) -> [LogHandler] {
+        var hanlders = [LogHandler]()
+        if hanlders.isEmpty {
+            hanlders.append(StreamLogHandler.standardError(label: label))
+        }
+        return hanlders
+    }
 }
 #if canImport(CocoaLumberjack)
 import CocoaLumberjack
@@ -45,14 +53,14 @@ struct DDLogHandler: LogHandler {
             return nil
         }
         set(newValue) {
-            
+            metadata = newValue
         }
     }
     
     var metadata: Logging.Logger.Metadata = .init()
     
     var logLevel: Logging.Logger.Level = .info
-    
+    // swiftlint:disable function_parameter_count
     func log(level: Logger.Level,
              message: Logger.Message,
              metadata: Logger.Metadata?,
@@ -69,7 +77,7 @@ struct DDLogHandler: LogHandler {
                                    line: line,
                                    tag: nil,
                                    timestamp: nil)
-        DDLog.log(asynchronous: true, message: message)
+        DDLog.log(asynchronous: false, message: message)
     
     }
 }

@@ -32,6 +32,7 @@ extension DebugProvider {
         DoraemonCacheManager.sharedInstance().saveCrashSwitch(true)
         DoraemonCacheManager.sharedInstance().saveMemoryLeakAlert(true)
         DoraemonCacheManager.sharedInstance().saveLoggerSwitch(true)
+        DoraemonCocoaLumberjackLogger.sharedInstance().startMonitor()
         DoraemonCacheManager.sharedInstance().saveStartClass(NSStringFromClass(AppDelegateAdaptor.classForCoder()))
         DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
             DoraemonManager.shareInstance().install()
