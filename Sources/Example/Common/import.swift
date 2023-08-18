@@ -6,35 +6,19 @@
 //
 
 import DFService
-typealias URLRouter = URLRoutePipeline
+import Logging
+
+typealias URLRouter = RoutePipeline
+
+typealias Logger = Logging.Logger
+typealias DFProviderType = DFService.DFProviderType
+typealias ApplicationContext = DFService.ApplicationContext
+
 let DF = ApplicationContext.shared
-#if canImport(UIKit)
-import UIKit
-#endif
-#if canImport(SwiftUI)
-import SwiftUI
-#endif
-class CommomProvider: DFProviderType {
-    var isBootstrap: Bool = false
-    
-    required init(_ app: DFService.ApplicationContext) {
-        
+let router = RoutePipeline()
+
+extension Logger {
+    init(_ cls: AnyClass) {
+        self.init(label: String(describing: cls))
     }
-    
-    func register(_ app: DFService.ApplicationContext) {
-        setUITheme()
-    }
-    
-    func boot(_ app: DFService.ApplicationContext) {
-        
-    }
-    
-}
-extension CommomProvider {
-    @available(iOS 10.0, *)
-    func setUITheme() {
-        let navigationBar: UINavigationBar = UINavigationBar.appearance()
-        navigationBar.prefersLargeTitles = false
-    }
-    
 }

@@ -4,15 +4,16 @@ source 'https://cdn.cocoapods.org/'
 platform :ios, '12.0'
 ensure_bundler!
 
-# 本地开发库和远程库切换使用
-def podDebugCondition(name)
-  if ENV["#{name}"] == '1'
+def debug_condition_pod(name)
+  if ENV['DEBUG_POD'] == '1'
+    pod name, :configurations => ['Debug'] #可选
+  elsif ENV[name.gsub("/", "_")] == '1'
     pod name, :configurations => ['Debug'] #可选
   end
 end
-
 def debug_pod #开发使用库
-  podDebugCondition('DoraemonKit')
+  debug_condition_pod('DoraemonKit/WithLogger')
+  debug_condition_pod('DoraemonKit/WithMLeaksFinder')
 end
 def local_pod #本地开发使用库
   podSet = [].to_set

@@ -9,10 +9,13 @@ import UIKit
 
 @available(iOS 13.0, *)
 class SceneDelegateAdaptor: UIResponder, UIWindowSceneDelegate {
-
+    
+    let logger = Logger(SceneDelegateAdaptor.self)
+    
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        logger.info("scene will connect")
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
