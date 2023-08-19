@@ -91,3 +91,4 @@ fastlane/.env
 iOSInjectionProject/
 *.zip
 *.lock
+.swiftpm/
