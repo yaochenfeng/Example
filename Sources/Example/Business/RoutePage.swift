@@ -11,6 +11,19 @@ enum RoutePage: String, CaseIterable {
     case root
     case setting
 }
+extension RoutePage: Identifiable {
+    var id: String {
+        return rawValue
+    }
+    var title: String {
+        switch self {
+        case .root:
+            return "首页"
+        case .setting:
+            return "设置"
+        }
+    }
+}
 
 extension RoutePage {
     var routeUri: String {
@@ -19,19 +32,26 @@ extension RoutePage {
         default: return RouteProvider.rootUri + "/" + rawValue
         }
     }
+    var routeURL: URL? {
+        return URL(string: routeUri)
+    }
+    func navigate() {
+        guard let url = URL(string: routeUri) else { return }
+        router.navigate(url)
+    }
 }
-//#if canImport(swiftUI)
 import SwiftUI
 
 extension RoutePage {
-    @available(iOS 13.0.0, *)
+    
     var routeView: some View {
+        let page: any View
         switch self {
         case .root:
-            return Text("root")
+            page = RouteListView()
         case .setting:
-            return Text("setting")
+            page = Text("setting")
         }
+        return AnyView(page)
     }
 }
-//#endif

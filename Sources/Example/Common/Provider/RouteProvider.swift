@@ -37,6 +37,9 @@ class RouteProvider: DFProviderType {
         router.addTerminateHandle { _, res in
             if case .success(let output) = res, let vc = output as? UIViewController {
                 UIViewController.topViewController()?.show(vc, sender: nil)
+            } else if case .success(let output) = res, let view = output as? (any View) {
+                let vc = UIHostingController(rootView: AnyView(view))
+                UIViewController.topViewController()?.show(vc, sender: nil)
             }
         }
     }
