@@ -10,12 +10,18 @@ import UIKit
 @available(iOS 13.0, *)
 class SceneDelegateAdaptor: UIResponder, UIWindowSceneDelegate {
     
-    let logger = Logger(SceneDelegateAdaptor.self)
+    let logger = Logger(label: SceneDelegateAdaptor.self)
     
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         logger.info("scene will connect")
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        self.window = windowScene.windows.first(where: { wind in
+            wind.isKeyWindow
+        })
+        logger.info("scene will connect scene\(windowScene)")
+
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

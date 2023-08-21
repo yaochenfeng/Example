@@ -13,7 +13,7 @@ class RouteProvider: DFProviderType {
     static var rootUri = "home.local"
     var isBootstrap: Bool = false
     var schemes: [String] = ["example"]
-    let logger = Logger(RouteProvider.self)
+    let logger = Logger(label: RouteProvider.self)
     required init(_ app: ApplicationContext) {
         
         if let info = Bundle.main.infoDictionary,
