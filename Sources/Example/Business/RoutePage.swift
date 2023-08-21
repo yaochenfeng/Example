@@ -10,6 +10,7 @@ import Foundation
 enum RoutePage: String, CaseIterable {
     case root
     case setting
+    case aboutMe
 }
 extension RoutePage: Identifiable {
     var id: String {
@@ -21,6 +22,8 @@ extension RoutePage: Identifiable {
             return "首页"
         case .setting:
             return "设置"
+        case .aboutMe:
+            return "关于"
         }
     }
 }
@@ -51,6 +54,8 @@ extension RoutePage {
             page = RouteListView()
         case .setting:
             page = Text("setting")
+        case .aboutMe:
+            page = AboutMeView()
         }
         return AnyView(page)
     }
