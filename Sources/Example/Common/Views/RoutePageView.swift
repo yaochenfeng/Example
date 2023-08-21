@@ -22,10 +22,20 @@ struct RoutePageView: View {
             let output = try router.process(url)
             if let value = output as? (any View) {
                 view = value
+            } else if let vc = output as? UIViewController {
+                view = UIPageView {
+                    vc
+                }
             }
         } catch {
             view = builderError(error)
         }
+        if #available(iOS 14.0, *) {
+            view = view.navigationBarTitleDisplayMode(.inline)
+        } else {
+            // Fallback on earlier versions
+        }
+        
         return AnyView(view)
     }
     func builderError(_ error: Error) -> some View {

@@ -10,13 +10,27 @@ import SwiftUI
 struct AboutMeView: View {
     var body: some View {
         List {
-            VStack {
+            Section {
+                RouteLinkView("https://m.baidu.com") {
+                    Text("隐私协议")
+                }
+                RouteLinkView("https://m.baidu.com") {
+                    Text("用户协议")
+                }
+            } header: {
                 HStack(alignment: .center) {
                     Spacer()
-                    Text("版本 \(Bundle.appVersion)")
+                    VStack {
+                        Image(Asset.appIcon60x60.name)
+                        Text("版本\(DF.environment.appVersion) - \(DF.environment.appBuild)")
+                        Spacer(minLength: 40)
+                    }
                     Spacer()
+                    
                 }
+                
             }
+            
         }
         
     }
@@ -24,6 +38,8 @@ struct AboutMeView: View {
 
 struct AboutMeView_Previews: PreviewProvider {
     static var previews: some View {
-        AboutMeView()
+        RootView {
+            AboutMeView()
+        }
     }
 }

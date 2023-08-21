@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,7 @@
 		6D564E70DA3C4231E690CBDE /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F13ABDDE4514EBC2FF740 /* RootView.swift */; };
 		7C14B03401B920BA1D4544CB /* RoutePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8BE48F1056072D13D32D9E /* RoutePageView.swift */; };
 		873A49DBC13B0C10923455FF /* AboutMeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB09E8F15397ED1A244C97A5 /* AboutMeView.swift */; };
+		8F4101672A93D8C300AD879C /* UIPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4101662A93D8C300AD879C /* UIPageView.swift */; };
 		8F512E1E11109BBA9D8F6EE2 /* SceneDelegateAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B397410046778362E109CF58 /* SceneDelegateAdaptor.swift */; };
 		9DC352EA0D1547499C733816 /* AppAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019D4ACB69D460E9A4E9C4C8 /* AppAdaptor.swift */; };
 		9E39CF0DA0BD661890ACED3F /* SettingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA73312307579DE883D249C1 /* SettingPageView.swift */; };
@@ -46,6 +47,7 @@
 		7D4A44E029F4A238BB800A71 /* RouteLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteLinkView.swift; sourceTree = "<group>"; };
 		8315F32BF300DAF4EE280B19 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86E1C855A9F723E67DFA3585 /* RouteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteListView.swift; sourceTree = "<group>"; };
+		8F4101662A93D8C300AD879C /* UIPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPageView.swift; sourceTree = "<group>"; };
 		923DE8ADF50F0D75B496283B /* RoutePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutePage.swift; sourceTree = "<group>"; };
 		A78D37C9FCEA104CCBF334E4 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		AB09E8F15397ED1A244C97A5 /* AboutMeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				B52F13ABDDE4514EBC2FF740 /* RootView.swift */,
 				7D4A44E029F4A238BB800A71 /* RouteLinkView.swift */,
 				CF8BE48F1056072D13D32D9E /* RoutePageView.swift */,
+				8F4101662A93D8C300AD879C /* UIPageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -161,7 +164,6 @@
 				A78D37C9FCEA104CCBF334E4 /* Pods-Example.debug.xcconfig */,
 				45E4EB08C7C5AD10B9CDCB07 /* Pods-Example.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -253,8 +255,6 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1200;
-				TargetAttributes = {
-				};
 			};
 			buildConfigurationList = 36FC72E69D906F48675C62BF /* Build configuration list for PBXProject "Example" */;
 			compatibilityVersion = "Xcode 11.0";
@@ -360,6 +360,7 @@
 				5B7B3C102360B7471219BABD /* DebugProvider.swift in Sources */,
 				40441B2CEA64169BCA8FE036 /* ExampleApp.swift in Sources */,
 				F713C2A6AB1A92328205AEE9 /* LoggerProvider.swift in Sources */,
+				8F4101672A93D8C300AD879C /* UIPageView.swift in Sources */,
 				6D564E70DA3C4231E690CBDE /* RootView.swift in Sources */,
 				5B80098BB6B34C35693C504F /* RouteLinkView.swift in Sources */,
 				F7EAEE81FA0E0A7FFE1474B4 /* RouteListView.swift in Sources */,

@@ -10,9 +10,12 @@ import SwiftUI
 struct RouteLinkView<Label>: View where Label: View {
     let url: URL?
     let content: () -> Label
-    public init(_ url: URL?, @ViewBuilder label: @escaping () -> Label) {
+    init(_ url: URL?, @ViewBuilder label: @escaping () -> Label) {
         self.url = url
         self.content = label
+    }
+    init(_ str: String, @ViewBuilder label: @escaping () -> Label) {
+        self.init(URL(string: str), label: label)
     }
     var body: some View {
         if #available(iOS 16.0, *) {
