@@ -160,7 +160,6 @@
 			isa = PBXGroup;
 			children = (
 				176CE6339162C36E065217E0 /* ExampleApp.swift */,
-				8C54D7279B8190074863899E /* import.swift */,
 				7E742407C086B0C7D92C75B5 /* Adaptor */,
 				56964BB6CBAEB6F3A9CA409A /* Controller */,
 				C911AE09D0AB391F4B3557E1 /* Exts */,
@@ -198,6 +197,7 @@
 		E8F2506729332AA1DCF8B408 /* Provider */ = {
 			isa = PBXGroup;
 			children = (
+				8C54D7279B8190074863899E /* import.swift */,
 				15B07641901597D44345103A /* AppProvider.swift */,
 				1C49559A017365DF5E49E415 /* DebugProvider.swift */,
 				0751EFC63EB7E382B8D4DA74 /* LoggerProvider.swift */,

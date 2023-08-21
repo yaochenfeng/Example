@@ -10,7 +10,7 @@ import UIKit
 @available(iOS 13.0, *)
 class SceneDelegateAdaptor: UIResponder, UIWindowSceneDelegate {
     
-    let logger = Logger(SceneDelegateAdaptor.self)
+    let logger = Logger(label: SceneDelegateAdaptor.self)
     
     var window: UIWindow?
 

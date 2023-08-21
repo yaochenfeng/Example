@@ -15,7 +15,7 @@ let DF = ApplicationContext.shared
 let router = RoutePipeline()
 
 extension Logger {
-    init(_ cls: AnyClass) {
-        self.init(label: String(describing: cls))
+    init(label: AnyClass) {
+        self.init(label: String(describing: label))
     }
 }

@@ -10,7 +10,7 @@ import CocoaLumberjack
 import UIKit
 class AppDelegateAdaptor: UIResponder {
     var window: UIWindow?
-    var logger = Logger(AppDelegateAdaptor.self)
+    var logger = Logger(label: AppDelegateAdaptor.self)
 }
 extension AppDelegateAdaptor: UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
