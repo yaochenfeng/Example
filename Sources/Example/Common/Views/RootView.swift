@@ -13,12 +13,22 @@ struct RootView<Content>: View where Content: View {
         self.content = content
     }
     var body: some View {
-        NavigationView {
-            if #available(iOS 14.0, *) {
+        if #available(iOS 16.0, *) {
+            NavigationStack {
                 content()
-                    .navigationBarTitleDisplayMode(.inline)
-            } else {
-                content()
+                    .navigationDestination(for: URL.self) { url in
+                        RoutePageView(url: url)
+                    }
+                    .navigationTitle("Colors")
+            }
+        } else {
+            NavigationView {
+                if #available(iOS 14.0, *) {
+                    content()
+                        .navigationBarTitleDisplayMode(.inline)
+                } else {
+                    content()
+                }
             }
         }
     }

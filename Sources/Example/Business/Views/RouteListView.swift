@@ -13,9 +13,7 @@ struct RouteListView: View {
     var body: some View {
         List {
             ForEach(RoutePage.allCases) { routePage in
-                NavigationLink {
-                    RoutePageView(url: routePage.routeURL)
-                } label: {
+                RouteLinkView(routePage.routeURL) {
                     Text(routePage.title)
                 }
             }
